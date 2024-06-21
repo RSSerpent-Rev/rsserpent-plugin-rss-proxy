@@ -1,29 +1,15 @@
-from typing import Any, Dict
+from typing import Any
 
 import feedparser
+from feedparser_to_feedgen import to_feedgen  # type: ignore[import-not-found]
+from rsserpent_rev.models import Feed
 from rsserpent_rev.utils import cached
-
 
 path = "/proxy/{url:path}"
 
 
 @cached
-async def provider(url: str) -> Dict[str, Any]:
+async def provider(url: str) -> Feed:
     """Return the latest news from the given RSS feed."""
     feed = feedparser.parse(url)
-
-    items = [
-        {
-            "title": x.title,
-            "description": x.summary,
-            "link": x.link,
-            "pub_date": x.published,
-        }
-        for x in feed.entries
-    ]
-    return {
-        "title": feed.feed.title,
-        "link": feed.feed.link,
-        "description": feed.feed.description,
-        "items": items,
-    }
+    return to_feedgen(feed)

@@ -351,6 +351,20 @@ files = [
 ]
 
 [[package]]
+name = "feedgen"
+version = "1.0.0"
+description = "Feed Generator (ATOM, RSS, Podcasts)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "feedgen-1.0.0.tar.gz", hash = "sha256:d9bd51c3b5e956a2a52998c3708c4d2c729f2fcc311188e1e5d3b9726393546a"},
+]
+
+[package.dependencies]
+lxml = "*"
+python-dateutil = "*"
+
+[[package]]
 name = "feedparser"
 version = "6.0.11"
 description = "Parse Atom/RSS/JSON feeds in Python"
@@ -368,6 +382,25 @@ type = "git"
 url = "https://github.com/kurtmckee/feedparser"
 reference = "develop"
 resolved_reference = "cb80f4042e28ab3b561c09810604e1f0f798164f"
+
+[[package]]
+name = "feedparser-to-feedgen"
+version = "0.1.0"
+description = ""
+optional = false
+python-versions = "^3.10"
+files = []
+develop = false
+
+[package.dependencies]
+feedgen = "^1.0.0"
+feedparser = "^6.0.11"
+
+[package.source]
+type = "git"
+url = "https://github.com/EkkoG/feedparser-to-feedgen"
+reference = "HEAD"
+resolved_reference = "6f8e2555cdc5e603fcba0f53e4379af98305ef00"
 
 [[package]]
 name = "filelock"
@@ -1568,4 +1601,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10.0"
-content-hash = "3d7eb9a01979729fb314c18ee9ae53b0d3448cd565cd1962000123d473a297e8"
+content-hash = "731cfcd2f9f408c20ee3fd6b910e77b5c726d226e18d498ef1aca4651087b5b2"
